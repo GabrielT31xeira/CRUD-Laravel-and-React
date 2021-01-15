@@ -14,7 +14,8 @@ class contactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return response()->json(['status' => 200, 'contacts' => $contacts]);
     }
 
     /**
@@ -41,7 +42,7 @@ class contactController extends Controller
             'telefone' => $request->telefone
         ]);
         if($newContact){
-            return response()->json('Hello react response');
+            return response()->json(['status' => 200]);
         }
     }
 
