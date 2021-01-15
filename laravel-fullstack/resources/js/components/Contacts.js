@@ -5,7 +5,7 @@ import contact from './Contact';
 
 class Contacts extends React.Component {
     state = {
-        contacts: [],
+        contact: [],
         loading: true,
     }
     fetchedContacts = async () => {
@@ -19,6 +19,12 @@ class Contacts extends React.Component {
     componentDidMount() {
         this.fetchedContacts();
     }
+    deleteContact = async (id) => {
+        const res = await axios.delete(`contact/${id}`);
+        if (res.data.status === 200) {
+            this.fetchedContacts();
+        }
+    }
 
     render() {
         if (this.state.loading) {
@@ -27,7 +33,7 @@ class Contacts extends React.Component {
         return (
             <div>
                 {this.state.contacts.map(contact => (
-                    <Contact contact = {contact} key={contact.id}/>
+                    <Contact contact = {contact} key={contact.id} deleteContact = {this.deleteContact}/>
                 ))}
             </div>
         )

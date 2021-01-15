@@ -17,5 +17,5 @@ use App\Http\Controllers\contactController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/contact', contactController::class);
-Route::resource('/contacts', contactController::class);
+//Route::post('/contact', contactController::class);
+Route::resource('contact', contactController::class);

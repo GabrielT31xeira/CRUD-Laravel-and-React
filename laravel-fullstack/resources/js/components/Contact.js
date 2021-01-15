@@ -1,10 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Contact extends React.Component {
+    delContact = (id) =>{
+        this.props.deleteContact;
+    }
     render() {
         const { contact } = this.props;
         return (
-            <div className="card">
+            <div className="card mb-5">
                 <div className="card-body">
                     <div className="row">
                         <div className="col-md-2">
@@ -18,6 +22,16 @@ class Contact extends React.Component {
                         </div>
                         <div className="col-md-2">
                             {contact.telefone}
+                        </div>
+                        <div className="col-md-2">
+                            <Link className="btn btn-warning" to={`/edit/${contact.id}`}>
+                                Editar
+                            </Link>
+                        </div>
+                        <div className="col-md-2">
+                            <Link className="btn btn-danger" onClick={()=>this.delContact(contact.id)}>
+                                Apagar
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -65,7 +65,8 @@ class contactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $contact = Contact::find($id);
+        return response()->json(['status' => 200, 'contact' => $contact]);
     }
 
     /**
@@ -77,7 +78,14 @@ class contactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->nome = $request->nome;
+        $contact->email = $request->email;
+        $contact->telefone = $request->telefone;
+        if($contact->save){
+            return response()->json(['status' => 200, 'contact' => $contact]);
+        }
+
     }
 
     /**
@@ -88,6 +96,9 @@ class contactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $contact = Contact::find($id);
+        if($contact -> delete()){
+            return response()->json(['status' => 200]);
+        }
     }
 }
