@@ -15,6 +15,10 @@ class AddContact extends React.Component {
     saveContact = async (e) => {
         e.preventDefault();
         const res = await axios.post("/contact", this.state);
+        this.setState({ nome:'', email:'', telefone:'' });
+        if (res.data.status === 200) {
+            this.props.history.push("/");
+        }
         console.log(res);
     }
     render() {

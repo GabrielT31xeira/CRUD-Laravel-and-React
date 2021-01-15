@@ -5,13 +5,15 @@ import Nav from './Nav';
 import Contacts from './Contacts';
 import AddContact from './addContact';
 
+import './app.css';
+
 function Example() {
     return (
         <Router>
             <Nav />
             <div className="container mt-5">
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-12">
                         <Switch>
                             <Route path="/" exact component={Contacts} />
                             <Route path="/addContact" exact component={AddContact} />
