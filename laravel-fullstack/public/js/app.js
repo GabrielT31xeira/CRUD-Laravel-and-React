@@ -2003,7 +2003,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _editContact__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./editContact */ "./resources/js/components/editContact.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -2030,6 +2031,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2086,14 +2088,16 @@ var Contact = /*#__PURE__*/function (_React$Component) {
               children: contact.telefone
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
               className: "col-md-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
                 className: "btn btn-warning",
                 to: "/edit/".concat(contact.id),
+                exact: true,
+                component: _editContact__WEBPACK_IMPORTED_MODULE_2__.default,
                 children: "Editar"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
               className: "col-md-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
                 className: "btn btn-danger",
                 onClick: function onClick() {
                   return _this2.delContact(contact.id);
@@ -2334,7 +2338,7 @@ function Example() {
               exact: true,
               component: _Contacts__WEBPACK_IMPORTED_MODULE_4__.default
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-              path: "/addContact",
+              path: "/contact",
               exact: true,
               component: _addContact__WEBPACK_IMPORTED_MODULE_5__.default
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, {
@@ -2415,7 +2419,7 @@ var Nav = function Nav() {
             className: "nav-item",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
               className: "nav-link",
-              to: "/addContact",
+              to: "/contact",
               children: "Adcionar Contato"
             })
           })]
@@ -2693,7 +2697,7 @@ var editContact = /*#__PURE__*/function (_React$Component) {
                 e.preventDefault();
                 id = _this.props.match.params.id;
                 _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().patch("/contact/".concat(id, "/edit"), _this.state);
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().patch("/edit/".concat(id), _this.state);
 
               case 4:
                 res = _context.sent;
@@ -2729,7 +2733,7 @@ var editContact = /*#__PURE__*/function (_React$Component) {
               case 0:
                 id = this.props.match.params.id;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/edit/".concat(id));
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/contact/".concat(id, "/edit"));
 
               case 3:
                 res = _context2.sent;

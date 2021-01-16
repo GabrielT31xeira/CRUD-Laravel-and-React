@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import editContact from './editContact';
+
+
 class Contact extends React.Component {
     delContact = (id) =>{
         this.props.deleteContact;
@@ -15,7 +18,7 @@ class Contact extends React.Component {
                             <span className="image">{contact.nome[0]}</span>
                         </div>
                         <div className="col-md-2">
-                            {contact.nome}
+                            {contact.nome}  
                         </div>
                         <div className="col-md-2">
                             {contact.email}
@@ -24,7 +27,7 @@ class Contact extends React.Component {
                             {contact.telefone}
                         </div>
                         <div className="col-md-2">
-                            <Link className="btn btn-warning" to={`/edit/${contact.id}`}>
+                            <Link className="btn btn-warning" to={`/edit/${contact.id}`} exact component={editContact}>
                                 Editar
                             </Link>
                         </div>

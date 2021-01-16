@@ -14,7 +14,7 @@ class contactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::all();
+        $contacts = contact::paginate(10);
         return response()->json(['status' => 200, 'contacts' => $contacts]);
     }
 
@@ -78,7 +78,7 @@ class contactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $contact = Contact::find($id);
+        $contact = Contact::findOrFail($id);
         $contact->nome = $request->nome;
         $contact->email = $request->email;
         $contact->telefone = $request->telefone;
@@ -96,7 +96,7 @@ class contactController extends Controller
      */
     public function destroy($id)
     {
-        $contact = Contact::find($id);
+        $contact = Contact::findOrFail($id);
         if($contact -> delete()){
             return response()->json(['status' => 200]);
         }

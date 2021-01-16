@@ -15,7 +15,7 @@ class editContact extends React.Component {
     updateContact = async (e) => {
         e.preventDefault();
         const id = this.props.match.params.id;
-        const res = await axios.patch(`/contact/${id}/edit`, this.state);
+        const res = await axios.patch(`/edit/${id}`, this.state);
         if (res.data.status === 200) {
             this.props.history.push("/");
         }
@@ -23,7 +23,7 @@ class editContact extends React.Component {
     }
     async conponetDidMount() {
         const id = this.props.match.params.id;
-        const res = await axios.get(`/edit/${id}`);
+        const res = await axios.get(`/contact/${id}/edit`);
         console.log(res.data.contact.nome);
         this.setState({ nome: res.data.contact.nome });
         this.setState({ email: res.data.contact.email });

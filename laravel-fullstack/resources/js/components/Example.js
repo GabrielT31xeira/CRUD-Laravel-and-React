@@ -18,13 +18,12 @@ function Example() {
                     <div className="col-md-12">
                         <Switch>
                             <Route path="/" exact component={Contacts} />
-                            <Route path="/addContact" exact component={AddContact} />
+                            <Route path="/contact" exact component={AddContact} />
                             <Router path="/edit/:id" exact component={editContact} />
                         </Switch>
                     </div>
                 </div>
             </div>
-
         </Router>
     );
 }
