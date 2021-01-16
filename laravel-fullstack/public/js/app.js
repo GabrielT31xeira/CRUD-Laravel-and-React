@@ -2098,6 +2098,7 @@ var Contact = /*#__PURE__*/function (_React$Component) {
                 onClick: function onClick() {
                   return _this2.delContact(contact.id);
                 },
+                to: "/",
                 children: "Apagar"
               })
             })]
@@ -2271,7 +2272,7 @@ var Contacts = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
         children: this.state.contacts.map(function (contact) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(Contact, {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Contact__WEBPACK_IMPORTED_MODULE_4__.default, {
             contact: contact,
             deleteContact: _this2.deleteContact
           }, contact.id);
@@ -2383,7 +2384,7 @@ var Nav = function Nav() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         className: "navbar-brand",
         to: "/",
-        children: "Navbar"
+        children: "Home"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
         className: "navbar-toggler",
         type: "button",
@@ -2416,20 +2417,6 @@ var Nav = function Nav() {
               className: "nav-link",
               to: "/addContact",
               children: "Adcionar Contato"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-            className: "nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "nav-link",
-              to: "/",
-              children: "Pricing"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("li", {
-            className: "nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "nav-link",
-              to: "/",
-              children: "About"
             })
           })]
         })
@@ -2639,6 +2626,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
 
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -2669,15 +2657,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var EditContact = /*#__PURE__*/function (_React$Component) {
-  _inherits(EditContact, _React$Component);
+var editContact = /*#__PURE__*/function (_React$Component) {
+  _inherits(editContact, _React$Component);
 
-  var _super = _createSuper(EditContact);
+  var _super = _createSuper(editContact);
 
-  function EditContact() {
+  function editContact() {
     var _this;
 
-    _classCallCheck(this, EditContact);
+    _classCallCheck(this, editContact);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
@@ -2705,7 +2693,7 @@ var EditContact = /*#__PURE__*/function (_React$Component) {
                 e.preventDefault();
                 id = _this.props.match.params.id;
                 _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().patch("/contact/".concat(id), _this.state);
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().patch("/contact/".concat(id, "/edit"), _this.state);
 
               case 4:
                 res = _context.sent;
@@ -2730,7 +2718,7 @@ var EditContact = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  _createClass(EditContact, [{
+  _createClass(editContact, [{
     key: "conponetDidMount",
     value: function () {
       var _conponetDidMount = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee2() {
@@ -2741,7 +2729,7 @@ var EditContact = /*#__PURE__*/function (_React$Component) {
               case 0:
                 id = this.props.match.params.id;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("contact/".concat(id, "/edit"));
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().get("/edit/".concat(id));
 
               case 3:
                 res = _context2.sent;
@@ -2774,17 +2762,51 @@ var EditContact = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
-          children: "Hwewfsdf"
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
+          onSubmit: this.updateContact,
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+            children: "Editar Contato"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+            className: "form-group",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+              type: "text",
+              name: "nome",
+              className: "form-control",
+              value: this.state.nome,
+              onChange: this.handleInput,
+              placeholder: "Nome",
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+              type: "text",
+              name: "email",
+              className: "form-control",
+              value: this.state.email,
+              onChange: this.handleInput,
+              placeholder: "Email",
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("input", {
+              type: "text",
+              name: "telefone",
+              className: "form-control",
+              value: this.state.telefone,
+              onChange: this.handleInput,
+              placeholder: "telefone",
+              required: true
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("button", {
+              type: "submit",
+              className: "btn btn-primary",
+              children: "Atualizar"
+            })]
+          })]
         })
       });
     }
   }]);
 
-  return EditContact;
+  return editContact;
 }(react__WEBPACK_IMPORTED_MODULE_2__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (EditContact);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (editContact);
 
 /***/ }),
 

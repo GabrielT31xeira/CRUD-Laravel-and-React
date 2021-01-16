@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import contact from './Contact';
+import Contact from './Contact';
 
 class Contacts extends React.Component {
     state = {

@@ -29,7 +29,7 @@ class Contact extends React.Component {
                             </Link>
                         </div>
                         <div className="col-md-2">
-                            <Link className="btn btn-danger" onClick={()=>this.delContact(contact.id)}>
+                            <Link className="btn btn-danger" onClick={()=>this.delContact(contact.id)} to={"/"}>
                                 Apagar
                             </Link>
                         </div>

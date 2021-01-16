@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './Nav';
 import Contacts from './Contacts';
 import AddContact from './addContact';
-import EditContact from './editContact';
+import editContact from './editContact';
 
 import '../../css/app.css';
 
@@ -19,7 +19,7 @@ function Example() {
                         <Switch>
                             <Route path="/" exact component={Contacts} />
                             <Route path="/addContact" exact component={AddContact} />
-                            <Router path="/edit/:id" exact component={EditContact} />
+                            <Router path="/edit/:id" exact component={editContact} />
                         </Switch>
                     </div>
                 </div>

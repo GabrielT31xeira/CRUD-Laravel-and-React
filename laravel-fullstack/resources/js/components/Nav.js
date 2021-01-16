@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container">
-                <Link className="navbar-brand" to="/">Navbar</Link>
+                <Link className="navbar-brand" to="/">Home</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -19,12 +19,6 @@ const Nav = () => {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/addContact">Adcionar Contato</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">Pricing</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/">About</Link>
                         </li>
                     </ul>
 
