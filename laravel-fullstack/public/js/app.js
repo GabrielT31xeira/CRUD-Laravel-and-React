@@ -2205,9 +2205,9 @@ var Contacts = /*#__PURE__*/function (_React$Component) {
             case 2:
               res = _context.sent;
 
-              if (res.status === 200) {
+              if (res.data === 200) {
                 _this.setState({
-                  contact: _this.res.state.contact
+                  contact: res.state.contact
                 });
 
                 _this.setState({
@@ -2273,10 +2273,10 @@ var Contacts = /*#__PURE__*/function (_React$Component) {
       }
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: this.state.contacts.map(this.contact = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Contact__WEBPACK_IMPORTED_MODULE_4__.default, {
-          contact: this.contact,
+        children: state.contacts.map(contact = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Contact__WEBPACK_IMPORTED_MODULE_4__.default, {
+          contact: contact,
           deleteContact: this.deleteContact
-        }, this.contact.id))
+        }, contact.id))
       });
     }
   }]);

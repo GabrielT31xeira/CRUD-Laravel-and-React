@@ -13,7 +13,7 @@ class Contacts extends React.Component {
     }
     fetchedContacts = async () => {
         const res = await axios.get("/contact");
-        if (res.status === 200) {
+        if (res.data === 200) {
             this.setState({ contact: res.state.contact });
             this.setState({ loading: false });
         }
@@ -32,8 +32,8 @@ class Contacts extends React.Component {
         }
         return (
             <div>
-                {this.state.contacts.map( this.contact = (
-                    <Contact contact = {this.contact} key={this.contact.id} deleteContact = {this.deleteContact}/>
+                {state.contacts.map(contact = (
+                    <Contact contact = {contact} key={contact.id} deleteContact = {this.deleteContact}/>
                 ))}
             </div>
         )
