@@ -14,7 +14,7 @@ class Contacts extends React.Component {
     fetchedContacts = async () => {
         const res = await axios.get("/contact");
         if (res.status === 200) {
-            this.setState({ contact: this.res.state.contact });
+            this.setState({ contact: res.state.contact });
             this.setState({ loading: false });
         }
         console.log(res);
