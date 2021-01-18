@@ -2205,9 +2205,9 @@ var Contacts = /*#__PURE__*/function (_React$Component) {
             case 2:
               res = _context.sent;
 
-              if (res.data.status === 200) {
+              if (res.status === 200) {
                 _this.setState({
-                  contacts: res.data.contacts
+                  contact: _this.res.state.contact
                 });
 
                 _this.setState({
@@ -2238,7 +2238,7 @@ var Contacts = /*#__PURE__*/function (_React$Component) {
               case 2:
                 res = _context2.sent;
 
-                if (res.data.status === 200) {
+                if (res.status === 200) {
                   _this.fetchedContacts();
                 }
 
@@ -2266,8 +2266,6 @@ var Contacts = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       if (this.state.loading) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
           children: "Carregando..."
@@ -2275,12 +2273,10 @@ var Contacts = /*#__PURE__*/function (_React$Component) {
       }
 
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-        children: this.state.contacts.map(function (contact) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Contact__WEBPACK_IMPORTED_MODULE_4__.default, {
-            contact: contact,
-            deleteContact: _this2.deleteContact
-          }, contact.id);
-        })
+        children: this.state.contacts.map(this.contact = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_Contact__WEBPACK_IMPORTED_MODULE_4__.default, {
+          contact: this.contact,
+          deleteContact: this.deleteContact
+        }, this.contact.id))
       });
     }
   }]);

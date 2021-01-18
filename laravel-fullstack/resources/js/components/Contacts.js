@@ -8,20 +8,20 @@ class Contacts extends React.Component {
         contact: [],
         loading: true,
     }
+    componentDidMount() {
+        this.fetchedContacts();
+    }
     fetchedContacts = async () => {
         const res = await axios.get("/contact");
-        if (res.data.status === 200) {
-            this.setState({ contacts: res.data.contacts });
+        if (res.status === 200) {
+            this.setState({ contact: this.res.state.contact });
             this.setState({ loading: false });
         }
         console.log(res);
     }
-    componentDidMount() {
-        this.fetchedContacts();
-    }
     deleteContact = async (id) => {
         const res = await axios.delete(`contact/${id}`);
-        if (res.data.status === 200) {
+        if (res.status === 200) {
             this.fetchedContacts();
         }
     }
@@ -32,8 +32,8 @@ class Contacts extends React.Component {
         }
         return (
             <div>
-                {this.state.contacts.map(contact => (
-                    <Contact contact = {contact} key={contact.id} deleteContact = {this.deleteContact}/>
+                {this.state.contacts.map( this.contact = (
+                    <Contact contact = {this.contact} key={this.contact.id} deleteContact = {this.deleteContact}/>
                 ))}
             </div>
         )
